@@ -3,147 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Subscribe</title>
 
-<!-- <div id="paypal-button-container-P-5W2219340Y307133KNH5WBQY"></div> -->
-  <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
+<script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription"></script>
 
 <style>
+:root {
+  --bg: #0b1220;
+  --text: #e5eefc;
+  --muted: #8fa0bd;
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+}
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
-  height: 100vh;
+  background: linear-gradient(180deg, #0b1220, #0a0f1a);
+  color: var(--text);
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container {
-  background: #1a1a1a;
-  padding: 30px;
-  border-radius: 20px;
+.wrapper {
   width: 100%;
-  max-width: 420px;
+  max-width: 520px;
   text-align: center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  padding: 20px;
 }
 
-.title {
-  font-size: 22px;
-  margin-bottom: 5px;
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 20px;
-}
-
-/* PRICE BOX */
-.price-box {
-  background: linear-gradient(135deg, #111, #1f1f1f);
-  border: 1px solid #333;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  color: var(--muted);
+  margin-bottom: 30px;
 }
 
 .price {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 46px;
+  font-weight: 800;
+  background: linear-gradient(120deg, var(--blue), var(--blue-light));
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 5px;
 }
 
 .price span {
   font-size: 16px;
-  color: #aaa;
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .price-desc {
   font-size: 13px;
-  color: #777;
-  margin-top: 5px;
+  color: var(--muted);
+  margin-bottom: 25px;
 }
 
-#paypal-button-container {
-  margin-top: 10px;
-}
-
-.error {
-  background: #2a1212;
-  border: 1px solid #ff4d4d;
-  color: #ff4d4d;
-  padding: 12px;
-  border-radius: 10px;
+/* Terms */
+.terms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
   font-size: 14px;
+  color: var(--muted);
+}
+
+.terms input {
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.terms a {
+  color: var(--blue-light);
+  text-decoration: underline;
+}
+
+/* Disabled overlay */
+.disabled-overlay {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Messages */
+.error {
+  color: #f87171;
+  margin-top: 15px;
 }
 
 .success {
-  background: #102a1a;
-  border: 1px solid #22c55e;
-  color: #22c55e;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 14px;
+  color: #34d399;
   margin-top: 15px;
 }
 </style>
-
 </head>
 
 <body>
 
-<div class="container">
-  <div class="title">Subscribe</div>
-  <div class="subtitle">Become a Member</div>
+<div class="wrapper">
+  <h1>Become a Member</h1>
+  <div class="subtitle">Unlock full access to all courses and content</div>
 
-  <!-- PRICE DISPLAY -->
-  <div class="price-box">
-    <div class="price">$25 <span>/ month</span></div>
-    <div class="price-desc">Cancel anytime • Instant access</div>
+  <div class="price">$25 <span>/ month</span></div>
+  <div class="price-desc">Cancel anytime • Instant access</div>
+
+  <!-- Terms checkbox -->
+  <div class="terms">
+    <input type="checkbox" id="agreeTerms">
+    <label for="agreeTerms">
+      I agree to the <a href="#" target="_blank">Terms & Services</a>
+    </label>
   </div>
 
-  <div id="paypal-button-container"></div>
+  <!-- PayPal -->
+  <div id="paypal-button-container" class="disabled-overlay"></div>
 </div>
 
 <script>
-  let params = new URLSearchParams(document.location.search);
-  let user_id = params.get("id");
+let params = new URLSearchParams(window.location.search);
+let user_id = params.get("id");
 
-  function isValidUserId(id) {
-    return id && /^\d{10}$/.test(id);
-  }
+function isValidUserId(id) {
+  return id && /^\d{10}$/.test(id);
+}
 
-  const container = document.getElementById('paypal-button-container');
+const container = document.getElementById('paypal-button-container');
+const checkbox = document.getElementById('agreeTerms');
 
-  if (!isValidUserId(user_id)) {
-    container.innerHTML = "<div class='error'>Invalid or missing user ID</div>";
+// Toggle PayPal enable/disable
+checkbox.addEventListener('change', () => {
+  if (checkbox.checked) {
+    container.classList.remove('disabled-overlay');
   } else {
-    paypal.Buttons({
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          custom_id: user_id,
-            // plan_id: 'P-5W2219340Y307133KNH5WBQY'
-          plan_id: 'P-50U33288R5328161TNH5WSPI'
-        });
-      },
-      onApprove: function(data, actions) {
-        container.innerHTML += 
-          "<div class='success'>Subscription successful 🎉<br>ID: " + data.subscriptionID + "</div>";
-      }
-    }).render('#paypal-button-container'); // Renders the PayPal button
+    container.classList.add('disabled-overlay');
   }
+});
+
+if (!isValidUserId(user_id)) {
+  container.innerHTML = "<div class='error'>Invalid or missing user ID</div>";
+} else {
+  paypal.Buttons({
+    style: {
+      shape: 'pill',
+      color: 'blue',
+      layout: 'vertical',
+      label: 'subscribe'
+    },
+    onClick: function(data, actions) {
+      if (!checkbox.checked) {
+        alert("You must agree to the Terms & Services");
+        return actions.reject();
+      }
+      return actions.resolve();
+    },
+    createSubscription: function(data, actions) {
+      return actions.subscription.create({
+        custom_id: user_id,
+        plan_id: 'P-50U33288R5328161TNH5WSPI'
+      });
+    },
+    onApprove: function(data, actions) {
+      container.innerHTML += 
+        "<div class='success'>Subscription successful<br>ID: " + data.subscriptionID + "</div>";
+    }
+  }).render('#paypal-button-container');
+}
 </script>
 
 </body>
-</html>
 </html>
