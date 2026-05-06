@@ -6,8 +6,10 @@
 
 <title>Subscribe</title>
 
-<div id="paypal-button-container-P-5W2219340Y307133KNH5WBQY"></div>
-<script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<!-- <div id="paypal-button-container-P-5W2219340Y307133KNH5WBQY"></div> -->
+  <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
 
 <style>
 * {
@@ -130,17 +132,39 @@ body {
       createSubscription: function(data, actions) {
         return actions.subscription.create({
           custom_id: user_id,
-            plan_id: 'P-5W2219340Y307133KNH5WBQY'
+            // plan_id: 'P-5W2219340Y307133KNH5WBQY'
+          plan_id: 'P-50U33288R5328161TNH5WSPI'
         });
       },
       onApprove: function(data, actions) {
         container.innerHTML += 
           "<div class='success'>Subscription successful 🎉<br>ID: " + data.subscriptionID + "</div>";
       }
-    }).render('#paypal-button-container-P-5W2219340Y307133KNH5WBQY'); // Renders the PayPal button
+    }).render('#paypal-button-container'); // Renders the PayPal button
   }
 </script>
 
 </body>
 </html>
 </html>
+<!-- <div id="paypal-button-container-P-50U33288R5328161TNH5WSPI"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-50U33288R5328161TNH5WSPI'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-50U33288R5328161TNH5WSPI'); // Renders the PayPal button
+</script> -->
