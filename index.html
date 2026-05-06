@@ -1,22 +1,144 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Ensures optimal rendering on mobile devices. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Subscribe</title>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* PRICE BOX */
+.price-box {
+  background: linear-gradient(135deg, #111, #1f1f1f);
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.price span {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.price-desc {
+  font-size: 13px;
+  color: #777;
+  margin-top: 5px;
+}
+
+#paypal-button-container {
+  margin-top: 10px;
+}
+
+.error {
+  background: #2a1212;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.success {
+  background: #102a1a;
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+</style>
+
 </head>
+
 <body>
-  <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription">
-  </script> // Add your client_id
-     <div id="paypal-button-container"></div>
-      <script>
-       paypal.Buttons({
-        createSubscription: function(data, actions) {
-          return actions.subscription.create({
-           'plan_id': 'YOUR_PLAN_ID' // Creates the subscription
-           });
-         },
-         onApprove: function(data, actions) {
-           alert('You have successfully subscribed to ' + data.subscriptionID); // Optional message given to subscriber
-         }
-       }).render('#paypal-button-container'); // Renders the PayPal button
-      </script>
-  </body>
+
+<div class="container">
+  <div class="title">Subscribe</div>
+  <div class="subtitle">Unlock premium access</div>
+
+  <!-- PRICE DISPLAY -->
+  <div class="price-box">
+    <div class="price">$25 <span>/ month</span></div>
+    <div class="price-desc">Cancel anytime • Instant access</div>
+  </div>
+
+  <div id="paypal-button-container"></div>
+</div>
+
+<script>
+  let params = new URLSearchParams(document.location.search);
+  let user_id = params.get("id");
+
+  function isValidUserId(id) {
+    return id && /^\d{10}$/.test(id);
+  }
+
+  const container = document.getElementById('paypal-button-container');
+
+  if (!isValidUserId(user_id)) {
+    container.innerHTML = "<div class='error'>Invalid or missing user ID</div>";
+  } else {
+    paypal.Buttons({
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          custom_id: user_id
+        });
+      },
+      onApprove: function(data, actions) {
+        container.innerHTML += 
+          "<div class='success'>Subscription successful 🎉<br>ID: " + data.subscriptionID + "</div>";
+      }
+    }).render('#paypal-button-container');
+  }
+</script>
+
+</body>
+</html>
 </html>
