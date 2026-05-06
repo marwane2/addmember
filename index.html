@@ -3,148 +3,681 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youssef · Full-Stack Developer</title>
 
-<title>Subscribe</title>
-
-<!-- <div id="paypal-button-container-P-5W2219340Y307133KNH5WBQY"></div> -->
-  <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=ARSC0piTMl8_eA6whR0rPgawPLkJcxJrwUVAv7UeqipoOboy8wss4_YdAYV0_BqtrjHW2EusXhtNKAC1&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  --bg: #0b1220;
+  --card: rgba(255,255,255,0.05);
+  --text: #e5eefc;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --accent2: #a78bfa;
+  --line: rgba(255,255,255,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
-  color: white;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg,#0b1220,#070d18);
+  color: var(--text);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .container {
-  background: #1a1a1a;
-  padding: 30px;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+/* NAV */
+.nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 20px;
+  padding:18px 24px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background: rgba(11,18,32,0.72);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  position: sticky;
+  top: 16px;
+  z-index: 50;
+}
+
+.logo {
+  font-weight:800;
+  letter-spacing:-0.02em;
+}
+
+.nav-links {
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.nav a {
+  color:var(--muted);
+  font-size:0.95rem;
+  font-weight:500;
+}
+
+.nav a:hover {
+  color:#fff;
+}
+
+/* HERO */
+.hero {
+  margin-top: 24px;
+  padding:72px 40px;
+  border-radius: 28px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(16,26,47,0.95), rgba(16,26,47,0.72)),
+    linear-gradient(135deg, rgba(96,165,250,0.16), rgba(167,139,250,0.10));
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+  max-width: 12ch;
+}
+
+.highlight {
+  background: linear-gradient(120deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 780px;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.hero p.lead {
+  font-size: 1.16rem;
+  color: #dce7fb;
+}
+
+.eyebrow {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.06);
+  border:1px solid var(--line);
+  color:#d8e5ff;
+  font-size:0.92rem;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.eyebrow-dot {
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 6px rgba(34,197,94,0.12);
+}
+
+.tech-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.tech-badge {
+  display:inline-flex;
+  align-items:center;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(96,165,250,0.12);
+  border: 1px solid rgba(96,165,250,0.18);
+  color:#dbeafe;
+  font-size:0.88rem;
+  font-weight:600;
+}
+
+/* SECTIONS */
+.section-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  font-weight:800;
+  letter-spacing:-0.03em;
+  margin: 34px 0 14px;
+  padding-left: 16px;
+  border-left: 4px solid var(--accent);
+}
+
+.subtext {
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+
+/* LOGOS */
+.logo-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+  gap:20px;
+}
+
+.logo-item {
+  background:var(--card);
+  padding:15px;
+  border-radius:16px;
+  text-align:center;
+  border:1px solid var(--line);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.logo-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(96,165,250,0.35);
+}
+
+.logo-item img {
+  width:40px;
+  height:40px;
+  margin-bottom:8px;
+}
+
+.logo-item span {
+  font-size:13px;
+  color:var(--muted);
+  display:block;
+}
+
+/* LATEST COURSES */
+.courses-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px;
+}
+
+.course-card {
+  display:block;
   border-radius: 20px;
-  width: 100%;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  overflow:hidden;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  box-shadow: 0 16px 38px rgba(0,0,0,0.22);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
 }
 
-.title {
-  font-size: 22px;
-  margin-bottom: 5px;
+.course-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96,165,250,0.35);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.28);
 }
 
-.subtitle {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 20px;
+.course-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
-/* PRICE BOX */
-.price-box {
-  background: linear-gradient(135deg, #111, #1f1f1f);
-  border: 1px solid #333;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
+.course-image img {
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: saturate(1.05) contrast(1.02);
+  transition: transform 0.25s ease;
+}
+
+.course-card:hover .course-image img {
+  transform: scale(1.04);
+}
+
+.course-overlay {
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(8,13,24,0.1), rgba(8,13,24,0.72));
+}
+
+.course-content {
+  padding: 18px;
+}
+
+.course-tag {
+  display:inline-block;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(96,165,250,0.12);
+  border:1px solid rgba(96,165,250,0.18);
+  color:#dbeafe;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.course-title {
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.course-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.course-meta {
+  margin-top: 14px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Q&A */
+.qa {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.card {
+  background:var(--card);
+  padding:20px;
+  border-radius:18px;
+  border:1px solid var(--line);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+}
+
+.card h3 {
+  margin-bottom:12px;
+  font-size:1.05rem;
+}
+
+.card p, .card li {
+  color:var(--muted);
+  font-size:14px;
+  line-height: 1.65;
+}
+
+.card ul {
+  margin-left:18px;
+}
+
+/* SUBSCRIBE */
+.subscribe {
+  text-align:center;
+  padding:60px 20px;
+  margin-top: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
 }
 
 .price {
-  font-size: 32px;
-  font-weight: bold;
+  font-size:42px;
+  margin:18px 0 12px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
-.price span {
-  font-size: 16px;
-  color: #aaa;
+.btn {
+  background: linear-gradient(120deg,var(--accent),var(--accent2));
+  border:none;
+  padding:14px 28px;
+  border-radius:999px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 16px 28px rgba(96,165,250,0.18);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.price-desc {
-  font-size: 13px;
-  color: #777;
-  margin-top: 5px;
+.btn:hover {
+  transform: translateY(-2px);
+  opacity:0.96;
 }
 
-#paypal-button-container {
-  margin-top: 10px;
+/* FOOTER */
+footer {
+  margin-top: 28px;
+  padding: 26px 0 8px;
+  color:var(--muted);
 }
 
-.error {
-  background: #2a1212;
-  border: 1px solid #ff4d4d;
-  color: #ff4d4d;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 14px;
+.footer-grid {
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 22px 0 10px;
+  border-top: 1px solid var(--line);
 }
 
-.success {
-  background: #102a1a;
-  border: 1px solid #22c55e;
-  color: #22c55e;
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 14px;
-  margin-top: 15px;
+.footer-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #f8fbff;
+}
+
+.footer-text {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+.subscribe-form {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.subscribe-form input {
+  flex: 1 1 220px;
+  min-height: 48px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  padding: 0 16px;
+  outline: none;
+}
+
+.subscribe-form input::placeholder {
+  color: #8fa0bd;
+}
+
+.subscribe-form button {
+  min-height: 48px;
+}
+
+.footer-bottom {
+  display:flex;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap:wrap;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: #8fa0bd;
+}
+
+.toast-msg {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%) translateY(10px);
+  background: rgba(16, 185, 129, 0.95);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+  z-index: 1000;
+  transition: all 0.25s ease;
+  max-width: calc(100% - 24px);
+  text-align: center;
+  font-weight: 600;
+}
+
+.toast-msg.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subscribe-form {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav {
+    border-radius: 22px;
+    padding: 14px 16px;
+    flex-direction: column;
+    align-items:flex-start;
+  }
+
+  .hero {
+    padding: 26px;
+  }
+
+  .subscribe,
+  .card {
+    padding: 18px;
+  }
 }
 </style>
-
 </head>
-
 <body>
+  <div class="container">
 
-<div class="container">
-  <div class="title">Subscribe</div>
-  <div class="subtitle">Become a Member</div>
+    <header class="nav">
+      <div class="logo">Youssef Dev</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#learn">Learn</a>
+        <a href="#courses">Courses</a>
+        <a href="#subscribe">Subscribe</a>
+      </div>
+    </header>
 
-  <!-- PRICE DISPLAY -->
-  <div class="price-box">
-    <div class="price">$25 <span>/ month</span></div>
-    <div class="price-desc">Cancel anytime • Instant access</div>
+    <section class="hero" id="about">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> 4+ years building production systems</div>
+      <h1>Hi, I'm <span class="highlight">Youssef</span></h1>
+      <p class="lead">Full-Stack Developer, Mentor, and coding educator.</p>
+      <p>
+        I have spent over four years building real web applications, APIs, and modern digital products.
+        My focus is not only on writing code, but also on helping you understand how to think like a developer,
+        solve problems clearly, and build projects that look professional and work in the real world.
+      </p>
+      <p>
+        Whether you are starting from zero or already know some basics, I will guide you step by step with
+        practical lessons, real examples, and project-based learning. My goal is to help you become confident
+        enough to build your own apps, improve your skills, and move toward freelance or job opportunities.
+      </p>
+
+      <div class="tech-row">
+        <span class="tech-badge">React / Next.js</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">JavaScript / TypeScript</span>
+        <span class="tech-badge">Node.js</span>
+      </div>
+    </section>
+
+    <h2 class="section-title">Technologies you will master</h2>
+    <p class="subtext">
+      Learn the tools, languages, and frameworks used in modern web development.
+    </p>
+
+    <section class="logo-grid">
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"><span>Next.js</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express"><span>Express</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><span>MongoDB</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+    </section>
+
+    <h2 class="section-title" id="courses">Latest courses</h2>
+    <p class="subtext">
+      Click any course banner to go to the subscribe page and unlock full access.
+    </p>
+
+    <section class="courses-grid">
+      <a class="course-card" href="/subscribe">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="JavaScript course">
+          <div class="course-overlay"></div>
+        </div>
+        <div class="course-content">
+          <div class="course-tag">Frontend</div>
+          <div class="course-title">Modern JavaScript Mastery</div>
+          <div class="course-desc">Learn ES6+, DOM manipulation, async programming, APIs, and real-world frontend logic.</div>
+        </div>
+      </a>
+
+      <a class="course-card" href="/subscribe">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Python course">
+          <div class="course-overlay"></div>
+        </div>
+        <div class="course-content">
+          <div class="course-tag">Backend</div>
+          <div class="course-title">Python for Web and Automation</div>
+          <div class="course-desc">Build backend skills, automate tasks, and understand Python from the ground up.</div>
+        </div>
+      </a>
+
+      <a class="course-card" href="/subscribe">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80" alt="React course">
+          <div class="course-overlay"></div>
+        </div>
+        <div class="course-content">
+          <div class="course-tag">Framework</div>
+          <div class="course-title">React and Next.js Projects</div>
+          <div class="course-desc">Create modern web apps with components, hooks, routing, and production-ready structure.</div>
+        </div>
+      </a>
+
+      <a class="course-card" href="/subscribe">
+        <div class="course-image">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Full stack course">
+          <div class="course-overlay"></div>
+        </div>
+        <div class="course-content">
+          <div class="course-tag">Full Stack</div>
+          <div class="course-title">Full-Stack Roadmap</div>
+          <div class="course-desc">Learn frontend, backend, databases, deployment, and how to connect everything together.</div>
+        </div>
+      </a>
+    </section>
+
+    <h2 class="section-title" id="learn">What you will learn</h2>
+    <p class="subtext">
+      A practical path designed to help you build confidence and real projects.
+    </p>
+
+    <section class="qa">
+      <div class="card">
+        <h3>What are you going to learn?</h3>
+        <ul>
+          <li>Python and backend development</li>
+          <li>JavaScript and frontend logic</li>
+          <li>React and modern frameworks</li>
+          <li>Databases and APIs</li>
+          <li>Building real projects</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Is this for beginners?</h3>
+        <p>Yes. You can start from zero and progress step by step.</p>
+      </div>
+
+      <div class="card">
+        <h3>Will I build projects?</h3>
+        <p>You will build real applications to strengthen your skills.</p>
+      </div>
+
+      <div class="card">
+        <h3>Can I make money with coding?</h3>
+        <p>Yes, through freelancing, jobs, or your own projects.</p>
+      </div>
+    </section>
+
+    <section class="subscribe" id="subscribe">
+      <h2>Unlock full access</h2>
+      <div class="price">$25</div>
+      <p style="color: var(--muted); max-width: 720px; margin: 0 auto 18px;">
+        Subscribe to get full lessons, guided learning, project help, and the complete roadmap.
+      </p>
+      <button class="btn" onclick="subscribe()">Subscribe Now</button>
+    </section>
+
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title">Stay updated</div>
+          <p class="footer-text">
+            Get new lessons, course launches, and coding tips delivered to your inbox.
+            Join the email list to stay connected and keep learning.
+          </p>
+        </div>
+
+        <form class="subscribe-form" id="emailForm">
+          <input type="email" id="emailInput" placeholder="Enter your email" required>
+          <button class="btn" type="submit">Subscribe by Email</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Youssef Full Stack Developer</div>
+        <div>Learn to build with confidence.</div>
+      </div>
+    </footer>
   </div>
 
-  <div id="paypal-button-container"></div>
-</div>
+  <div id="liveToast" class="toast-msg">Subscription successful. Welcome to the learning journey.</div>
 
-<script>
-  let params = new URLSearchParams(document.location.search);
-  let user_id = params.get("id");
+  <script>
+    function subscribe() {
+      const toast = document.getElementById('liveToast');
+      toast.textContent = 'Subscription successful. Welcome to the learning journey.';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
 
-  function isValidUserId(id) {
-    return id && /^\d{10}$/.test(id);
-  }
+    const emailForm = document.getElementById('emailForm');
+    const emailInput = document.getElementById('emailInput');
+    const toastElement = document.getElementById('liveToast');
 
-  const container = document.getElementById('paypal-button-container');
+    emailForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      if (!email) return;
 
-  if (!isValidUserId(user_id)) {
-    container.innerHTML = "<div class='error'>Invalid or missing user ID</div>";
-  } else {
-    paypal.Buttons({
-      createSubscription: function(data, actions) {
-        return actions.subscription.create({
-          custom_id: user_id,
-            // plan_id: 'P-5W2219340Y307133KNH5WBQY'
-          plan_id: 'P-50U33288R5328161TNH5WSPI'
-        });
-      },
-      onApprove: function(data, actions) {
-        container.innerHTML += 
-          "<div class='success'>Subscription successful 🎉<br>ID: " + data.subscriptionID + "</div>";
-      }
-    }).render('#paypal-button-container'); // Renders the PayPal button
-  }
-</script>
+      toastElement.textContent = 'Email subscription saved successfully.';
+      toastElement.classList.add('show');
+      setTimeout(() => toastElement.classList.remove('show'), 3000);
 
+      emailInput.value = '';
+    });
+  </script>
 </body>
 </html>
-</html>
-
