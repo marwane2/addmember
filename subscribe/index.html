@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subscribe</title>
 
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
 <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 
 <style>
@@ -36,9 +35,15 @@ body {
   padding:20px;
 }
 
-h1 { font-size:32px; margin-bottom:10px; }
+h1 {
+  font-size:32px;
+  margin-bottom:10px;
+}
 
-.subtitle { color:var(--muted); margin-bottom:30px; }
+.subtitle {
+  color:var(--muted);
+  margin-bottom:30px;
+}
 
 .price {
   font-size:46px;
@@ -48,11 +53,17 @@ h1 { font-size:32px; margin-bottom:10px; }
   color:transparent;
 }
 
-.price span { font-size:16px; color:var(--muted); }
+.price span {
+  font-size:16px;
+  color:var(--muted);
+}
 
-.price-desc { color:var(--muted); margin-bottom:25px; font-size:13px; }
+.price-desc {
+  color:var(--muted);
+  margin-bottom:25px;
+  font-size:13px;
+}
 
-/* TERMS */
 .terms {
   display:flex;
   align-items:center;
@@ -62,8 +73,6 @@ h1 { font-size:32px; margin-bottom:10px; }
   font-size:14px;
   color:var(--muted);
 }
-
-.terms input { accent-color: var(--blue); }
 
 .terms button {
   background:none;
@@ -101,7 +110,8 @@ h1 { font-size:32px; margin-bottom:10px; }
   margin-bottom:10px;
 }
 
-.modal p, .modal li {
+.modal p,
+.modal li {
   color:var(--muted);
   font-size:14px;
   line-height:1.6;
@@ -118,20 +128,22 @@ h1 { font-size:32px; margin-bottom:10px; }
   cursor:pointer;
 }
 
-/* PAYPAL */
-.disabled {
-  opacity:0.4;
-  pointer-events:none;
+.success {
+  color:#34d399;
+  margin-top:15px;
 }
 
-.success { color:#34d399; margin-top:15px; }
-.error { color:#f87171; margin-top:15px; }
-
+.error {
+  color:#f87171;
+  margin-top:15px;
+}
 </style>
 </head>
 
 <body>
+
 <a href='/' style='display:none'>back</a>
+
 <div class="wrapper">
   <h1>Become a Member</h1>
   <div class="subtitle">Unlock full access</div>
@@ -140,184 +152,161 @@ h1 { font-size:32px; margin-bottom:10px; }
   <div class="price-desc">Cancel anytime • Instant access</div>
 
   <div class="terms">
-    <!-- <input type="checkbox" id="agree">
-    <label>I agree to the</label> -->
+    <!-- <label>By subscribing you agree to the</label> -->
     <button onclick="openModal()">Terms & Service</button>
   </div>
 
-  <div id="paypal-button-container" class="disabled"></div>
+  <div id="paypal-button-container"></div>
 </div>
 
 <!-- MODAL -->
 <div class="modal" id="termsModal">
   <div class="modal-content">
+
     <h2>Terms of Service</h2>
 
     <h2>Youssef Code Academy – Terms of Service</h2>
-<p><em>Last updated: January 2026</em></p>
+    <p><em>Last updated: January 2026</em></p>
 
-<p>
-Welcome to Youssef Code Academy. By subscribing to this platform, you confirm that you have read, understood, and agreed to the following Terms of Service.
-</p>
+    <p>
+      Welcome to Youssef Code Academy. By subscribing to this platform,
+      you confirm that you have read, understood, and agreed to the following Terms of Service.
+    </p>
 
-<h3>1. Service Description</h3>
-<p>
-Youssef Code Academy is a digital learning platform that provides access to coding courses, full-stack development tutorials, real-world projects, and a private community for students.
-</p>
-<p>
-All content is delivered digitally (videos, guides, and resources). No physical products are provided.
-</p>
+    <h3>1. Service Description</h3>
+    <p>
+      Youssef Code Academy is a digital learning platform that provides access
+      to coding courses, full-stack development tutorials, real-world projects,
+      and a private community for students.
+    </p>
 
-<h3>2. Subscription & Billing</h3>
-<ul>
-  <li>Subscription price: $25 per month (or current listed price)</li>
-  <li>Payments are processed securely via PayPal</li>
-  <li>Subscriptions renew automatically each month unless cancelled</li>
-  <li>You authorize recurring charges until cancellation</li>
-</ul>
+    <p>
+      All content is delivered digitally (videos, guides, and resources).
+      No physical products are provided.
+    </p>
 
-<h3>3. Access</h3>
-<ul>
-  <li>Access is granted immediately after successful payment</li>
-  <li>Access is strictly for the individual subscriber only</li>
-  <li>Accounts are non-transferable</li>
-  <li>Sharing account access or content is strictly prohibited</li>
-  <li>Violations may result in removal without refund</li>
-</ul>
+    <h3>2. Subscription & Billing</h3>
+    <ul>
+      <li>Subscription price: $25 per month</li>
+      <li>Payments are processed securely via PayPal</li>
+      <li>Subscriptions renew automatically each month unless cancelled</li>
+      <li>You authorize recurring charges until cancellation</li>
+    </ul>
 
-<h3>4. Refunds & Cancellations</h3>
+    <h3>3. Access</h3>
+    <ul>
+      <li>Access is granted immediately after successful payment</li>
+      <li>Access is strictly for the individual subscriber only</li>
+      <li>Accounts are non-transferable</li>
+      <li>Sharing account access or content is prohibited</li>
+    </ul>
 
-<p><strong>Subscription Cancellation</strong></p>
-<p>
-You may cancel your subscription at any time. Cancellation will stop future charges but does not affect the current billing period.
-</p>
-<p>
-It is your responsibility to cancel before your next billing date.
-</p>
+    <h3>4. Refunds & Cancellations</h3>
 
-<p><strong>Refund Policy</strong></p>
-<p>
-Due to the digital nature of the service and immediate access to content, all sales are final.
-</p>
-<ul>
-  <li>No refunds for missed cancellations</li>
-  <li>No refunds for lack of use</li>
-  <li>No refunds for change of mind</li>
-  <li>No refunds for dissatisfaction</li>
-  <li>No refunds if removed due to violations</li>
-</ul>
-<p>
-Refunds, if issued, are exceptional and at our sole discretion.
-</p>
+    <p><strong>Subscription Cancellation</strong></p>
 
-<p><strong>Chargebacks & Disputes</strong></p>
-<p>
-Opening a chargeback without contacting support may result in:
-</p>
-<ul>
-  <li>Immediate account termination</li>
-  <li>Permanent ban from the platform</li>
-  <li>Loss of all access</li>
-</ul>
+    <p>
+      You may cancel your subscription at any time.
+      Cancellation stops future charges only.
+    </p>
 
-<h3>5. User Conduct</h3>
-<ul>
-  <li>Use the platform respectfully and legally</li>
-  <li>No harassment or abuse</li>
-  <li>No sharing or leaking content</li>
-  <li>No reselling or redistribution</li>
-</ul>
-<p>
-Violations may result in removal without refund.
-</p>
+    <p><strong>Refund Policy</strong></p>
 
-<h3>6. Intellectual Property</h3>
-<p>
-All content (videos, code, resources, and materials) is the property of Youssef Code Academy.
-</p>
-<p>
-You may not copy, distribute, or resell any content without permission.
-</p>
+    <p>
+      Due to the digital nature of the service,
+      all sales are final.
+    </p>
 
-<h3>7. Limitation of Liability</h3>
-<p>
-This platform provides educational content only. We do not guarantee job placement, income, or specific results.
-</p>
-<p>
-Your success depends on your effort and consistency.
-</p>
+    <ul>
+      <li>No refunds for missed cancellations</li>
+      <li>No refunds for lack of use</li>
+      <li>No refunds for dissatisfaction</li>
+    </ul>
 
-<h3>8. Modifications to Terms</h3>
-<p>
-These Terms may be updated at any time. Continued use of the platform means you accept the updated terms.
-</p>
+    <h3>5. User Conduct</h3>
+    <ul>
+      <li>No harassment or abuse</li>
+      <li>No leaking content</li>
+      <li>No redistribution or reselling</li>
+    </ul>
 
-<h3>9. Contact Information</h3>
-<p>
-For support or billing questions:
-</p>
-<p>📧 youssefdev12@email.com</p>
+    <h3>6. Intellectual Property</h3>
+    <p>
+      All content belongs to Youssef Code Academy.
+    </p>
+
+    <h3>7. Limitation of Liability</h3>
+    <p>
+      We do not guarantee specific results, income, or job placement.
+    </p>
+
+    <h3>8. Contact</h3>
+    <p>📧 youssefdev12@email.com</p>
 
     <button class="close-btn" onclick="closeModal()">Close</button>
+
   </div>
 </div>
 
 <script>
-// const checkbox = document.getElementById("agree");
-const paypalContainer = document.getElementById("paypal-button-container");
 const modal = document.getElementById("termsModal");
+const paypalContainer = document.getElementById("paypal-button-container");
 
-checkbox.addEventListener("change", () => {
-  paypalContainer.classList.toggle("disabled", !checkbox.checked);
-});
-
-function openModal(){
+function openModal() {
   modal.style.display = "flex";
 }
 
-function closeModal(){
+function closeModal() {
   modal.style.display = "none";
 }
 
 let params = new URLSearchParams(window.location.search);
 let user_id = params.get("id");
 
-function isValidUserId(id){
+function isValidUserId(id) {
   return id && /^\d{10}$/.test(id);
 }
 
 if (!isValidUserId(user_id)) {
-  paypalContainer.innerHTML = "<div class='error'>Invalid user ID</div>";
+
+  paypalContainer.innerHTML =
+    "<div class='error'>Invalid user ID</div>";
+
 } else {
+
   paypal.Buttons({
+
     style: {
       shape: 'pill',
       color: 'blue',
       layout: 'vertical',
       label: 'subscribe'
     },
-    onClick: function(data, actions){
-      // if(!checkbox.checked){
-      //   alert("You must agree to the Terms");
-      //   return actions.reject();
-      // }
-      return actions.resolve();
-    },
-    createSubscription: function(data, actions){
+
+    createSubscription: function(data, actions) {
+
       return actions.subscription.create({
         custom_id: user_id,
-          // plan_id: 'P-67Y497252E1741223NH7WFPY'
-         plan_id: 'P-1HT80915G2894501DNH7WICA'
+
+        // Sandbox
+        // plan_id: 'P-67Y497252E1741223NH7WFPY'
+
+        // Live
+        plan_id: 'P-1HT80915G2894501DNH7WICA'
       });
     },
-    onApprove: function(data){
-      paypalContainer.innerHTML += "<div class='success'>Subscription successful<br>ID: "+data.subscriptionID+"</div>";
+
+    onApprove: function(data) {
+
+      paypalContainer.innerHTML +=
+        "<div class='success'>Subscription successful<br>ID: "
+        + data.subscriptionID +
+        "</div>";
     }
+
   }).render('#paypal-button-container');
 }
 </script>
 
 </body>
 </html>
-
-
