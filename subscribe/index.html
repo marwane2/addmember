@@ -140,8 +140,8 @@ h1 { font-size:32px; margin-bottom:10px; }
   <div class="price-desc">Cancel anytime • Instant access</div>
 
   <div class="terms">
-    <input type="checkbox" id="agree">
-    <label>I agree to the</label>
+    <!-- <input type="checkbox" id="agree">
+    <label>I agree to the</label> -->
     <button onclick="openModal()">Terms & Service</button>
   </div>
 
@@ -263,7 +263,7 @@ For support or billing questions:
 </div>
 
 <script>
-const checkbox = document.getElementById("agree");
+// const checkbox = document.getElementById("agree");
 const paypalContainer = document.getElementById("paypal-button-container");
 const modal = document.getElementById("termsModal");
 
@@ -297,10 +297,10 @@ if (!isValidUserId(user_id)) {
       label: 'subscribe'
     },
     onClick: function(data, actions){
-      if(!checkbox.checked){
-        alert("You must agree to the Terms");
-        return actions.reject();
-      }
+      // if(!checkbox.checked){
+      //   alert("You must agree to the Terms");
+      //   return actions.reject();
+      // }
       return actions.resolve();
     },
     createSubscription: function(data, actions){
