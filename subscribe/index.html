@@ -287,12 +287,8 @@ if (!isValidUserId(user_id)) {
 
       return actions.subscription.create({
         custom_id: user_id,
-
-        // Sandbox
-        // plan_id: 'P-67Y497252E1741223NH7WFPY'
-
-        // Live
-        plan_id: 'P-1HT80915G2894501DNH7WICA'
+          /* Creates the subscription */
+          plan_id: 'P-67Y497252E1741223NH7WFPY'
       });
     },
 
