@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subscribe</title>
 
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
 <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 
 <style>
@@ -263,11 +264,11 @@ function closeModal() {
 let params = new URLSearchParams(window.location.search);
 let user_id = params.get("id");
 
-function isValidUserId(id) {
-  return id && /^\d{10}$/.test(id);
-}
+// function isValidUserId(user_id) {
+//   return id && /^\d{10}$/.test(id);
+// }
 
-if (!isValidUserId(user_id)) {
+if (!user_id) {
 
   paypalContainer.innerHTML =
     "<div class='error'>Invalid user ID</div>";
@@ -288,7 +289,8 @@ if (!isValidUserId(user_id)) {
       return actions.subscription.create({
         custom_id: user_id,
           /* Creates the subscription */
-          plan_id: 'P-67Y497252E1741223NH7WFPY'
+          // plan_id: 'P-67Y497252E1741223NH7WFPY'
+          plan_id: 'P-1HT80915G2894501DNH7WICA'
       });
     },
 
