@@ -287,10 +287,8 @@ if (!user_id) {
     createSubscription: function(data, actions) {
 
       return actions.subscription.create({
-        custom_id: user_id,
-          /* Creates the subscription */
-          // plan_id: 'P-67Y497252E1741223NH7WFPY'
-          plan_id: 'P-1HT80915G2894501DNH7WICA'
+          plan_id: 'P-1HT80915G2894501DNH7WICA',
+          custom_id: user_id
       });
     },
 
