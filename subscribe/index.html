@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Subscribe</title>
 
-<!-- <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
-<script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-
+<script src="https://www.paypal.com/sdk/js?client-id=BAAFOO97RxAhYVgybDdHagxK4WXcMRZxHcTNk3GkPx2jULr8suJZkUCGh_jczM6uKqO6Fm8_3-g2QirUq8&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
 <style>
 :root {
   --bg: #0b1220;
@@ -287,7 +286,7 @@ if (!user_id) {
     createSubscription: function(data, actions) {
 
       return actions.subscription.create({
-          plan_id: 'P-1HT80915G2894501DNH7WICA',
+        plan_id: 'P-2YL44982XP430694BNIAJ57Y',
           custom_id: user_id
       });
     },
