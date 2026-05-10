@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe</title>
+
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script> -->
+<script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+
+<style>
+:root {
+  --bg: #0b1220;
+  --text: #e5eefc;
+  --muted: #8fa0bd;
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg,#0b1220,#0a0f1a);
+  color: var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.wrapper {
+  width:100%;
+  max-width:520px;
+  text-align:center;
+  padding:20px;
+}
+
+h1 { font-size:32px; margin-bottom:10px; }
+
+.subtitle { color:var(--muted); margin-bottom:30px; }
+
+.price {
+  font-size:46px;
+  font-weight:800;
+  background: linear-gradient(120deg,var(--blue),var(--blue-light));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.price span { font-size:16px; color:var(--muted); }
+
+.price-desc { color:var(--muted); margin-bottom:25px; font-size:13px; }
+
+/* TERMS */
+.terms {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:20px;
+  font-size:14px;
+  color:var(--muted);
+}
+
+.terms input { accent-color: var(--blue); }
+
+.terms button {
+  background:none;
+  border:none;
+  color:var(--blue-light);
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+/* MODAL */
+.modal {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
+}
+
+.modal-content {
+  background:#0b1220;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:12px;
+  max-width:700px;
+  width:100%;
+  max-height:80vh;
+  overflow-y:auto;
+  padding:20px;
+  text-align:left;
+}
+
+.modal h2 {
+  margin-bottom:10px;
+}
+
+.modal p, .modal li {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.close-btn {
+  margin-top:15px;
+  background:var(--blue);
+  border:none;
+  padding:10px 16px;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* PAYPAL */
+.disabled {
+  opacity:0.4;
+  pointer-events:none;
+}
+
+.success { color:#34d399; margin-top:15px; }
+.error { color:#f87171; margin-top:15px; }
+
+</style>
+</head>
+
+<body>
+<a href='/' style='display:none'>back</a>
+<div class="wrapper">
+  <h1>Become a Member</h1>
+  <div class="subtitle">Unlock full access</div>
+
+  <div class="price">$25 <span>/ month</span></div>
+  <div class="price-desc">Cancel anytime • Instant access</div>
+
+  <div class="terms">
+    <input type="checkbox" id="agree">
+    <label>I agree to the</label>
+    <button onclick="openModal()">Terms & Service</button>
+  </div>
+
+  <div id="paypal-button-container" class="disabled"></div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="termsModal">
+  <div class="modal-content">
+    <h2>Terms of Service</h2>
+
+    <h2>Youssef Code Academy – Terms of Service</h2>
+<p><em>Last updated: January 2026</em></p>
+
+<p>
+Welcome to Youssef Code Academy. By subscribing to this platform, you confirm that you have read, understood, and agreed to the following Terms of Service.
+</p>
+
+<h3>1. Service Description</h3>
+<p>
+Youssef Code Academy is a digital learning platform that provides access to coding courses, full-stack development tutorials, real-world projects, and a private community for students.
+</p>
+<p>
+All content is delivered digitally (videos, guides, and resources). No physical products are provided.
+</p>
+
+<h3>2. Subscription & Billing</h3>
+<ul>
+  <li>Subscription price: $25 per month (or current listed price)</li>
+  <li>Payments are processed securely via PayPal</li>
+  <li>Subscriptions renew automatically each month unless cancelled</li>
+  <li>You authorize recurring charges until cancellation</li>
+</ul>
+
+<h3>3. Access</h3>
+<ul>
+  <li>Access is granted immediately after successful payment</li>
+  <li>Access is strictly for the individual subscriber only</li>
+  <li>Accounts are non-transferable</li>
+  <li>Sharing account access or content is strictly prohibited</li>
+  <li>Violations may result in removal without refund</li>
+</ul>
+
+<h3>4. Refunds & Cancellations</h3>
+
+<p><strong>Subscription Cancellation</strong></p>
+<p>
+You may cancel your subscription at any time. Cancellation will stop future charges but does not affect the current billing period.
+</p>
+<p>
+It is your responsibility to cancel before your next billing date.
+</p>
+
+<p><strong>Refund Policy</strong></p>
+<p>
+Due to the digital nature of the service and immediate access to content, all sales are final.
+</p>
+<ul>
+  <li>No refunds for missed cancellations</li>
+  <li>No refunds for lack of use</li>
+  <li>No refunds for change of mind</li>
+  <li>No refunds for dissatisfaction</li>
+  <li>No refunds if removed due to violations</li>
+</ul>
+<p>
+Refunds, if issued, are exceptional and at our sole discretion.
+</p>
+
+<p><strong>Chargebacks & Disputes</strong></p>
+<p>
+Opening a chargeback without contacting support may result in:
+</p>
+<ul>
+  <li>Immediate account termination</li>
+  <li>Permanent ban from the platform</li>
+  <li>Loss of all access</li>
+</ul>
+
+<h3>5. User Conduct</h3>
+<ul>
+  <li>Use the platform respectfully and legally</li>
+  <li>No harassment or abuse</li>
+  <li>No sharing or leaking content</li>
+  <li>No reselling or redistribution</li>
+</ul>
+<p>
+Violations may result in removal without refund.
+</p>
+
+<h3>6. Intellectual Property</h3>
+<p>
+All content (videos, code, resources, and materials) is the property of Youssef Code Academy.
+</p>
+<p>
+You may not copy, distribute, or resell any content without permission.
+</p>
+
+<h3>7. Limitation of Liability</h3>
+<p>
+This platform provides educational content only. We do not guarantee job placement, income, or specific results.
+</p>
+<p>
+Your success depends on your effort and consistency.
+</p>
+
+<h3>8. Modifications to Terms</h3>
+<p>
+These Terms may be updated at any time. Continued use of the platform means you accept the updated terms.
+</p>
+
+<h3>9. Contact Information</h3>
+<p>
+For support or billing questions:
+</p>
+<p>📧 youssefdev12@email.com</p>
+
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+const checkbox = document.getElementById("agree");
+const paypalContainer = document.getElementById("paypal-button-container");
+const modal = document.getElementById("termsModal");
+
+checkbox.addEventListener("change", () => {
+  paypalContainer.classList.toggle("disabled", !checkbox.checked);
+});
+
+function openModal(){
+  modal.style.display = "flex";
+}
+
+function closeModal(){
+  modal.style.display = "none";
+}
+
+let params = new URLSearchParams(window.location.search);
+let user_id = params.get("id");
+
+function isValidUserId(id){
+  return id && /^\d{10}$/.test(id);
+}
+
+if (!isValidUserId(user_id)) {
+  paypalContainer.innerHTML = "<div class='error'>Invalid user ID</div>";
+} else {
+  paypal.Buttons({
+    style: {
+      shape: 'pill',
+      color: 'blue',
+      layout: 'vertical',
+      label: 'subscribe'
+    },
+    onClick: function(data, actions){
+      if(!checkbox.checked){
+        alert("You must agree to the Terms");
+        return actions.reject();
+      }
+      return actions.resolve();
+    },
+    createSubscription: function(data, actions){
+      return actions.subscription.create({
+        custom_id: user_id,
+          // plan_id: 'P-67Y497252E1741223NH7WFPY'
+         plan_id: 'P-1HT80915G2894501DNH7WICA'
+      });
+    },
+    onApprove: function(data){
+      paypalContainer.innerHTML += "<div class='success'>Subscription successful<br>ID: "+data.subscriptionID+"</div>";
+    }
+  }).render('#paypal-button-container');
+}
+</script>
+
+</body>
+</html>
+ remove the if checked requiremnt
