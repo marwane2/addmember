@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Service | Youssef Dev</title>
+<script src="https://www.paypal.com/sdk/js?client-id=AcUT1_kcybyME5-xs1qQV3PSxwYKZtE1w6TmumnNfY8Ahtd3PdusCReTLrQ8NRCIYy6XyBlxRNATR1sN&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -115,10 +116,29 @@ For questions regarding these terms:
 <br><br>
 Email: twinsdeveloperservice@gmail.com
 </p>
-
+<div id="paypal-button-container-P-1HT80915G2894501DNH7WICA"></div>
 </div>
 
 </div>
 
 </body>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-1HT80915G2894501DNH7WICA'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-1HT80915G2894501DNH7WICA'); // Renders the PayPal button
+</script>
 </html>
