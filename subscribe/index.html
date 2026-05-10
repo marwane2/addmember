@@ -182,10 +182,10 @@ h1{
 
   <div id="paypal-button-container"></div>
 
-  <div class="notice">
+  <!-- <div class="notice">
     By subscribing, you agree to receive digital educational services
     and recurring subscription billing according to the selected plan.
-  </div>
+  </div> -->
 
   <div class="legal-links">
     <a href="/privacy-policy">Privacy Policy</a>
@@ -194,9 +194,9 @@ h1{
     <a href="/contact">Contact</a>
   </div>
 
-  <a href="/" class="back-link">
-    ← Back to Home
-  </a>
+<a href="/" class="back-link" id="backLink" style="display:none;">
+  ← Back to Home
+</a>
 
 </div>
 
@@ -204,12 +204,16 @@ h1{
 
 const paypalContainer =
 document.getElementById("paypal-button-container");
+const backLink =
+document.getElementById("backLink");
 
 const params =
 new URLSearchParams(window.location.search);
 
 const user_id = params.get("id");
-
+if(user_id === "8725265061"){
+  backLink.style.display = "inline-block";
+}
 if (!user_id){
 
   paypalContainer.innerHTML =
