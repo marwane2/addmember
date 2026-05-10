@@ -159,113 +159,15 @@ h1 {
   <div id="paypal-button-container"></div>
 </div>
 
-<!-- MODAL -->
-// <div class="modal" id="termsModal">
-//   <div class="modal-content">
 
-//     <h2>Terms of Service</h2>
-
-//     <h2>Youssef Code Academy – Terms of Service</h2>
-//     <p><em>Last updated: January 2026</em></p>
-
-//     <p>
-//       Welcome to Youssef Code Academy. By subscribing to this platform,
-//       you confirm that you have read, understood, and agreed to the following Terms of Service.
-//     </p>
-
-//     <h3>1. Service Description</h3>
-//     <p>
-//       Youssef Code Academy is a digital learning platform that provides access
-//       to coding courses, full-stack development tutorials, real-world projects,
-//       and a private community for students.
-//     </p>
-
-//     <p>
-//       All content is delivered digitally (videos, guides, and resources).
-//       No physical products are provided.
-//     </p>
-
-//     <h3>2. Subscription & Billing</h3>
-//     <ul>
-//       <li>Subscription price: $25 per month</li>
-//       <li>Payments are processed securely via PayPal</li>
-//       <li>Subscriptions renew automatically each month unless cancelled</li>
-//       <li>You authorize recurring charges until cancellation</li>
-//     </ul>
-
-//     <h3>3. Access</h3>
-//     <ul>
-//       <li>Access is granted immediately after successful payment</li>
-//       <li>Access is strictly for the individual subscriber only</li>
-//       <li>Accounts are non-transferable</li>
-//       <li>Sharing account access or content is prohibited</li>
-//     </ul>
-
-//     <h3>4. Refunds & Cancellations</h3>
-
-//     <p><strong>Subscription Cancellation</strong></p>
-
-//     <p>
-//       You may cancel your subscription at any time.
-//       Cancellation stops future charges only.
-//     </p>
-
-//     <p><strong>Refund Policy</strong></p>
-
-//     <p>
-//       Due to the digital nature of the service,
-//       all sales are final.
-//     </p>
-
-//     <ul>
-//       <li>No refunds for missed cancellations</li>
-//       <li>No refunds for lack of use</li>
-//       <li>No refunds for dissatisfaction</li>
-//     </ul>
-
-//     <h3>5. User Conduct</h3>
-//     <ul>
-//       <li>No harassment or abuse</li>
-//       <li>No leaking content</li>
-//       <li>No redistribution or reselling</li>
-//     </ul>
-
-//     <h3>6. Intellectual Property</h3>
-//     <p>
-//       All content belongs to Youssef Code Academy.
-//     </p>
-
-//     <h3>7. Limitation of Liability</h3>
-//     <p>
-//       We do not guarantee specific results, income, or job placement.
-//     </p>
-
-//     <h3>8. Contact</h3>
-//     <p>📧 youssefdev12@email.com</p>
-
-//     <button class="close-btn" onclick="closeModal()">Close</button>
-
-//   </div>
-// </div>
 
 <script>
-const modal = document.getElementById("termsModal");
-const paypalContainer = document.getElementById("paypal-button-container");
 
-function openModal() {
-  modal.style.display = "flex";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-}
 
 let params = new URLSearchParams(window.location.search);
 let user_id = params.get("id");
 
-// function isValidUserId(user_id) {
-//   return id && /^\d{10}$/.test(id);
-// }
+
 
 if (!user_id) {
 
