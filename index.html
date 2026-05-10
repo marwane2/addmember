@@ -1,680 +1,1171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youssef · Full-Stack Developer</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Youssef Dev | Full-Stack Developer & Coding Courses</title>
+
+<meta name="description" content="Learn modern web development with practical coding courses, real-world projects, mentorship, and full-stack training by Youssef Dev.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<link rel="icon" href="/favicon.ico">
+
 <style>
-:root {
-  --bg: #0b1220;
-  --card: rgba(255,255,255,0.05);
-  --text: #e5eefc;
-  --muted: #94a3b8;
-  --accent: #60a5fa;
-  --accent2: #a78bfa;
-  --line: rgba(255,255,255,0.08);
+
+:root{
+  --bg:#07111f;
+  --card:rgba(255,255,255,0.05);
+  --text:#edf4ff;
+  --muted:#9db0c9;
+  --accent:#60a5fa;
+  --accent2:#8b5cf6;
+  --line:rgba(255,255,255,0.08);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg,#0b1220,#070d18);
-  color: var(--text);
+html{
+  scroll-behavior:smooth;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body{
+  font-family:'Inter',sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(96,165,250,0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(139,92,246,0.08), transparent 30%),
+    linear-gradient(180deg,#07111f,#040b14);
+  color:var(--text);
 }
 
-.container {
-  width: min(1180px, calc(100% - 32px));
-  margin: 0 auto;
-  padding: 28px 0 48px;
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1200px, calc(100% - 32px));
+  margin:auto;
+  padding:24px 0 50px;
 }
 
 /* NAV */
-.nav {
+
+.nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap: 20px;
+  gap:20px;
   padding:18px 24px;
   border:1px solid var(--line);
+  background:rgba(6,14,26,0.8);
+  backdrop-filter:blur(16px);
   border-radius:999px;
-  background: rgba(11,18,32,0.72);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-  position: sticky;
-  top: 16px;
-  z-index: 50;
+  position:sticky;
+  top:16px;
+  z-index:999;
 }
 
-.logo {
+.logo{
+  font-size:1.1rem;
   font-weight:800;
-  letter-spacing:-0.02em;
+  letter-spacing:-0.03em;
 }
 
-.nav-links {
+.nav-links{
   display:flex;
   gap:18px;
   flex-wrap:wrap;
 }
 
-.nav a {
+.nav-links a{
   color:var(--muted);
   font-size:0.95rem;
-  font-weight:500;
+  transition:0.2s;
+  font-weight:600;
 }
 
-.nav a:hover {
-  color:#fff;
+.nav-links a:hover{
+  color:white;
 }
 
 /* HERO */
-.hero {
-  margin-top: 24px;
-  padding:72px 40px;
-  border-radius: 28px;
+
+.hero{
+  margin-top:28px;
+  padding:80px 48px;
+  border-radius:30px;
   border:1px solid var(--line);
+
   background:
-    linear-gradient(145deg, rgba(16,26,47,0.95), rgba(16,26,47,0.72)),
-    linear-gradient(135deg, rgba(96,165,250,0.16), rgba(167,139,250,0.10));
-  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+    linear-gradient(145deg, rgba(13,23,40,0.96), rgba(13,23,40,0.75)),
+    linear-gradient(135deg, rgba(96,165,250,0.08), rgba(139,92,246,0.08));
+
+  box-shadow:0 25px 70px rgba(0,0,0,0.35);
 }
 
-.hero h1 {
-  font-size: clamp(2.4rem, 6vw, 4.4rem);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
-  max-width: 12ch;
-}
-
-.highlight {
-  background: linear-gradient(120deg, var(--accent), var(--accent2));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.hero p {
-  color: var(--muted);
-  max-width: 780px;
-  font-size: 1.05rem;
-  margin-bottom: 14px;
-}
-
-.hero p.lead {
-  font-size: 1.16rem;
-  color: #dce7fb;
-}
-
-.eyebrow {
+.eyebrow{
   display:inline-flex;
   align-items:center;
   gap:10px;
-  padding:10px 14px;
+  padding:10px 16px;
   border-radius:999px;
-  background: rgba(255,255,255,0.06);
   border:1px solid var(--line);
-  color:#d8e5ff;
+  background:rgba(255,255,255,0.05);
   font-size:0.92rem;
   font-weight:600;
-  margin-bottom:18px;
+  margin-bottom:20px;
 }
 
-.eyebrow-dot {
+.dot{
   width:8px;
   height:8px;
   border-radius:50%;
-  background: #22c55e;
-  box-shadow: 0 0 0 6px rgba(34,197,94,0.12);
+  background:#22c55e;
+  box-shadow:0 0 0 6px rgba(34,197,94,0.12);
 }
 
-.tech-row {
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:22px;
+.hero h1{
+  font-size:clamp(2.6rem,7vw,5rem);
+  line-height:1.02;
+  letter-spacing:-0.05em;
+  max-width:10ch;
+  margin-bottom:20px;
 }
 
-.tech-badge {
-  display:inline-flex;
-  align-items:center;
-  padding:8px 12px;
-  border-radius:999px;
-  background: rgba(96,165,250,0.12);
-  border: 1px solid rgba(96,165,250,0.18);
+.highlight{
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:850px;
+  margin-bottom:16px;
+  font-size:1.04rem;
+}
+
+.hero .lead{
+  font-size:1.2rem;
   color:#dbeafe;
-  font-size:0.88rem;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:24px;
+}
+
+.btn{
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  transition:0.25s;
+}
+
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),var(--accent2));
+  color:white;
+  box-shadow:0 14px 30px rgba(96,165,250,0.18);
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+}
+
+.btn-secondary{
+  background:rgba(255,255,255,0.06);
+  border:1px solid var(--line);
+  color:white;
+}
+
+.btn-secondary:hover{
+  background:rgba(255,255,255,0.09);
+}
+
+.stats{
+  margin-top:40px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:18px;
+}
+
+.stat{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+}
+
+.stat h3{
+  font-size:2rem;
+  margin-bottom:6px;
+}
+
+.stat p{
+  margin:0;
+  font-size:0.94rem;
+}
+
+/* SECTION */
+
+.section-title{
+  font-size:clamp(1.7rem,4vw,2.4rem);
+  margin:42px 0 12px;
+  font-weight:900;
+  letter-spacing:-0.03em;
+}
+
+.subtext{
+  color:var(--muted);
+  margin-bottom:22px;
+  max-width:760px;
+  line-height:1.7;
+}
+
+/* TECH GRID */
+
+.logo-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:18px;
+}
+
+.logo-item{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:20px;
+  border-radius:18px;
+  text-align:center;
+  transition:0.22s;
+}
+
+.logo-item:hover{
+  transform:translateY(-4px);
+  border-color:rgba(96,165,250,0.35);
+}
+
+.logo-item img{
+  width:42px;
+  height:42px;
+  margin-bottom:10px;
+}
+
+.logo-item span{
+  color:var(--muted);
+  font-size:0.9rem;
   font-weight:600;
 }
 
-/* SECTIONS */
-.section-title {
-  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-  font-weight:800;
-  letter-spacing:-0.03em;
-  margin: 34px 0 14px;
-  padding-left: 16px;
-  border-left: 4px solid var(--accent);
-}
+/* COURSES */
 
-.subtext {
-  color: var(--muted);
-  margin-bottom: 20px;
-  max-width: 760px;
-}
-
-/* LOGOS */
-.logo-grid {
+.courses-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
 }
 
-.logo-item {
-  background:var(--card);
-  padding:15px;
-  border-radius:16px;
-  text-align:center;
+.course-card{
+  background:rgba(255,255,255,0.04);
   border:1px solid var(--line);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.logo-item:hover {
-  transform: translateY(-3px);
-  border-color: rgba(96,165,250,0.35);
-}
-
-.logo-item img {
-  width:40px;
-  height:40px;
-  margin-bottom:8px;
-}
-
-.logo-item span {
-  font-size:13px;
-  color:var(--muted);
-  display:block;
-}
-
-/* LATEST COURSES */
-.courses-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap:20px;
-}
-
-.course-card {
-  display:block;
-  border-radius: 20px;
+  border-radius:24px;
   overflow:hidden;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.04);
-  box-shadow: 0 16px 38px rgba(0,0,0,0.22);
-  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+  transition:0.25s;
+  box-shadow:0 18px 40px rgba(0,0,0,0.22);
 }
 
-.course-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(96,165,250,0.35);
-  box-shadow: 0 22px 50px rgba(0,0,0,0.28);
+.course-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(96,165,250,0.35);
 }
 
-.course-image {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
+.course-image{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
 }
 
-.course-image img {
+.course-image img{
   width:100%;
   height:100%;
-  object-fit: cover;
-  display:block;
-  filter: saturate(1.05) contrast(1.02);
-  transition: transform 0.25s ease;
+  object-fit:cover;
+  transition:0.3s;
 }
 
-.course-card:hover .course-image img {
-  transform: scale(1.04);
+.course-card:hover img{
+  transform:scale(1.04);
 }
 
-.course-overlay {
+.course-overlay{
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(8,13,24,0.1), rgba(8,13,24,0.72));
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,0.6));
 }
 
-.course-content {
-  padding: 18px;
+.course-content{
+  padding:20px;
 }
 
-.course-tag {
+.course-tag{
   display:inline-block;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: rgba(96,165,250,0.12);
-  border:1px solid rgba(96,165,250,0.18);
+  padding:8px 12px;
+  border-radius:999px;
+  background:rgba(96,165,250,0.12);
+  border:1px solid rgba(96,165,250,0.2);
+  font-size:0.82rem;
+  font-weight:700;
+  margin-bottom:14px;
+}
+
+.course-title{
+  font-size:1.15rem;
+  font-weight:800;
+  margin-bottom:10px;
+}
+
+.course-desc{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:0.96rem;
+}
+
+.course-meta{
+  margin-top:16px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
   color:#dbeafe;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size:0.9rem;
 }
 
-.course-title {
-  font-size: 1.12rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: 8px;
-}
+/* CONTENT */
 
-.course-desc {
-  color: var(--muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
-}
-
-.course-meta {
-  margin-top: 14px;
-  color: #cbd5e1;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-/* Q&A */
-.qa {
+.cards{
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
 }
 
-.card {
+.card{
   background:var(--card);
-  padding:20px;
-  border-radius:18px;
   border:1px solid var(--line);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+  border-radius:22px;
+  padding:24px;
 }
 
-.card h3 {
-  margin-bottom:12px;
-  font-size:1.05rem;
+.card h3{
+  margin-bottom:14px;
+  font-size:1.08rem;
 }
 
-.card p, .card li {
+.card p,
+.card li{
   color:var(--muted);
-  font-size:14px;
-  line-height: 1.65;
+  line-height:1.75;
+  font-size:0.95rem;
 }
 
-.card ul {
+.card ul{
   margin-left:18px;
 }
 
-/* SUBSCRIBE */
-.subscribe {
-  text-align:center;
-  padding:60px 20px;
-  margin-top: 18px;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+/* TIMELINE */
+
+.timeline{
+  display:grid;
+  gap:18px;
 }
 
-.price {
-  font-size:42px;
-  margin:18px 0 12px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
+.timeline-item{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:24px;
 }
 
-.btn {
-  background: linear-gradient(120deg,var(--accent),var(--accent2));
-  border:none;
-  padding:14px 28px;
-  border-radius:999px;
-  color:white;
+.timeline-item h3{
+  margin-bottom:10px;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.testimonial{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:24px;
+}
+
+.testimonial p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:14px;
+}
+
+.student{
   font-weight:700;
-  text-decoration:none;
-  cursor:pointer;
-  box-shadow: 0 16px 28px rgba(96,165,250,0.18);
-  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity:0.96;
+/* SUBSCRIBE */
+
+.subscribe{
+  margin-top:40px;
+  padding:70px 30px;
+  text-align:center;
+  border-radius:28px;
+  border:1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+}
+
+.subscribe h2{
+  font-size:2.2rem;
+  margin-bottom:10px;
+}
+
+.price{
+  font-size:4rem;
+  font-weight:900;
+  letter-spacing:-0.04em;
+  margin:20px 0 8px;
+}
+
+.subscribe p{
+  color:var(--muted);
+  max-width:760px;
+  margin:auto;
+  line-height:1.8;
+}
+
+.trust-row{
+  margin-top:24px;
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
+  color:#dbeafe;
+  font-size:0.95rem;
+}
+
+.trust-row span{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  padding:10px 14px;
+  border-radius:999px;
+}
+
+/* FAQ */
+
+.faq{
+  display:grid;
+  gap:18px;
+}
+
+.faq-item{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+}
+
+.faq-item h3{
+  margin-bottom:10px;
+}
+
+.faq-item p{
+  color:var(--muted);
+  line-height:1.7;
 }
 
 /* FOOTER */
-footer {
-  margin-top: 28px;
-  padding: 26px 0 8px;
-  color:var(--muted);
+
+footer{
+  margin-top:42px;
 }
 
-.footer-grid {
+.footer{
+  border-top:1px solid var(--line);
+  padding-top:28px;
+}
+
+.footer-grid{
   display:grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 20px;
-  align-items: start;
-  padding: 22px 0 10px;
-  border-top: 1px solid var(--line);
+  grid-template-columns:1.3fr 1fr;
+  gap:30px;
 }
 
-.footer-title {
-  font-size: 1.05rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #f8fbff;
+.footer h3{
+  margin-bottom:14px;
 }
 
-.footer-text {
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 580px;
+.footer p{
+  color:var(--muted);
+  line-height:1.8;
 }
 
-.subscribe-form {
+.footer-links{
   display:flex;
-  gap:10px;
+  gap:14px;
   flex-wrap:wrap;
-  justify-content:flex-end;
+  margin-top:18px;
 }
 
-.subscribe-form input {
-  flex: 1 1 220px;
-  min-height: 48px;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.04);
-  color: #fff;
-  padding: 0 16px;
-  outline: none;
+.footer-links a{
+  color:#dbeafe;
+  font-size:0.95rem;
 }
 
-.subscribe-form input::placeholder {
-  color: #8fa0bd;
+.subscribe-form{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
-.subscribe-form button {
-  min-height: 48px;
+.subscribe-form input{
+  flex:1;
+  min-height:48px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.04);
+  color:white;
+  padding:0 18px;
+  outline:none;
 }
 
-.footer-bottom {
+.subscribe-form input::placeholder{
+  color:#8ca0bd;
+}
+
+.bottom{
+  margin-top:28px;
+  border-top:1px solid var(--line);
+  padding-top:20px;
   display:flex;
   justify-content:space-between;
-  gap: 14px;
   flex-wrap:wrap;
-  margin-top: 18px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-  font-size: 0.92rem;
-  color: #8fa0bd;
+  gap:16px;
+  color:#90a2bc;
 }
 
-.toast-msg {
-  visibility: hidden;
-  opacity: 0;
-  position: fixed;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%) translateY(10px);
-  background: rgba(16, 185, 129, 0.95);
-  color: white;
-  padding: 14px 18px;
-  border-radius: 999px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-  z-index: 1000;
-  transition: all 0.25s ease;
-  max-width: calc(100% - 24px);
-  text-align: center;
-  font-weight: 600;
+.toast-msg{
+  visibility:hidden;
+  opacity:0;
+  position:fixed;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%) translateY(10px);
+  background:#10b981;
+  color:white;
+  padding:14px 20px;
+  border-radius:999px;
+  font-weight:700;
+  transition:0.25s;
 }
 
-.toast-msg.show {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+.toast-msg.show{
+  visibility:visible;
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+/* MOBILE */
 
-  .subscribe-form {
-    justify-content: flex-start;
-  }
-}
+@media(max-width:850px){
 
-@media (max-width: 768px) {
-  .nav {
-    border-radius: 22px;
-    padding: 14px 16px;
-    flex-direction: column;
+  .nav{
+    flex-direction:column;
     align-items:flex-start;
+    border-radius:24px;
   }
 
-  .hero {
-    padding: 26px;
+  .hero{
+    padding:36px 26px;
   }
 
-  .subscribe,
-  .card {
-    padding: 18px;
+  .footer-grid{
+    grid-template-columns:1fr;
   }
+
 }
+
 </style>
 </head>
 <body>
-  <div class="container">
 
-    <header class="nav">
-      <div class="logo">Youssef Dev</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#learn">Learn</a>
-        <a href="#courses">Courses</a>
-        <a href="#subscribe">Subscribe</a>
-      </div>
-    </header>
+<div class="container">
 
-    <section class="hero" id="about">
-      <div class="eyebrow"><span class="eyebrow-dot"></span> 4+ years building production systems</div>
-      <h1>Hi, I'm <span class="highlight">Youssef</span></h1>
-      <p class="lead">Full-Stack Developer, Mentor, and coding educator.</p>
-      <p>
-        I have spent over four years building real web applications, APIs, and modern digital products.
-        My focus is not only on writing code, but also on helping you understand how to think like a developer,
-        solve problems clearly, and build projects that look professional and work in the real world.
-      </p>
-      <p>
-        Whether you are starting from zero or already know some basics, I will guide you step by step with
-        practical lessons, real examples, and project-based learning. My goal is to help you become confident
-        enough to build your own apps, improve your skills, and move toward freelance or job opportunities.
-      </p>
+<header class="nav">
+  <div class="logo">Youssef Dev</div>
 
-      <div class="tech-row">
-        <span class="tech-badge">React / Next.js</span>
-        <span class="tech-badge">Python</span>
-        <span class="tech-badge">JavaScript / TypeScript</span>
-        <span class="tech-badge">Node.js</span>
-      </div>
-    </section>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#subscribe">Subscribe</a>
+  </div>
+</header>
 
-    <h2 class="section-title">Technologies you will master</h2>
-    <p class="subtext">
-      Learn the tools, languages, and frameworks used in modern web development.
-    </p>
+<section class="hero" id="about">
 
-    <section class="logo-grid">
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"><span>Next.js</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express"><span>Express</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"><span>MongoDB</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker"><span>Docker</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
-      <div class="logo-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
-    </section>
-
-    <h2 class="section-title" id="courses">Latest courses</h2>
-    <p class="subtext">
-      Click any course banner to go to the subscribe page and unlock full access.
-    </p>
-
-    <section class="courses-grid">
-      <a class="course-card" href="/subscribe?id=8725265061">
-        <div class="course-image">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="JavaScript course">
-          <div class="course-overlay"></div>
-        </div>
-        <div class="course-content">
-          <div class="course-tag">Frontend</div>
-          <div class="course-title">Modern JavaScript Mastery</div>
-          <div class="course-desc">Learn ES6+, DOM manipulation, async programming, APIs, and real-world frontend logic.</div>
-        </div>
-      </a>
-
-      <a class="course-card" href="/subscribe?id=8725265061">
-        <div class="course-image">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Python course">
-          <div class="course-overlay"></div>
-        </div>
-        <div class="course-content">
-          <div class="course-tag">Backend</div>
-          <div class="course-title">Python for Web and Automation</div>
-          <div class="course-desc">Build backend skills, automate tasks, and understand Python from the ground up.</div>
-        </div>
-      </a>
-
-      <a class="course-card" href="/subscribe?id=8725265061">
-        <div class="course-image">
-          <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80" alt="React course">
-          <div class="course-overlay"></div>
-        </div>
-        <div class="course-content">
-          <div class="course-tag">Framework</div>
-          <div class="course-title">React and Next.js Projects</div>
-          <div class="course-desc">Create modern web apps with components, hooks, routing, and production-ready structure.</div>
-        </div>
-      </a>
-
-      <a class="course-card" href="/subscribe?id=8725265061">
-        <div class="course-image">
-          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Full stack course">
-          <div class="course-overlay"></div>
-        </div>
-        <div class="course-content">
-          <div class="course-tag">Full Stack</div>
-          <div class="course-title">Full-Stack Roadmap</div>
-          <div class="course-desc">Learn frontend, backend, databases, deployment, and how to connect everything together.</div>
-        </div>
-      </a>
-    </section>
-
-    <h2 class="section-title" id="learn">What you will learn</h2>
-    <p class="subtext">
-      A practical path designed to help you build confidence and real projects.
-    </p>
-
-    <section class="qa">
-      <div class="card">
-        <h3>What are you going to learn?</h3>
-        <ul>
-          <li>Python and backend development</li>
-          <li>JavaScript and frontend logic</li>
-          <li>React and modern frameworks</li>
-          <li>Databases and APIs</li>
-          <li>Building real projects</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>Is this for beginners?</h3>
-        <p>Yes. You can start from zero and progress step by step.</p>
-      </div>
-
-      <div class="card">
-        <h3>Will I build projects?</h3>
-        <p>You will build real applications to strengthen your skills.</p>
-      </div>
-
-      <div class="card">
-        <h3>Can I make money with coding?</h3>
-        <p>Yes, through freelancing, jobs, or your own projects.</p>
-      </div>
-    </section>
-
-    <section class="subscribe" id="subscribe">
-      <h2>Unlock full access</h2>
-      <div class="price">$25</div>
-      <p style="color: var(--muted); max-width: 720px; margin: 0 auto 18px;">
-        Subscribe to get full lessons, guided learning, project help, and the complete roadmap.
-      </p>
-      <a href='/subscribe?id=8725265061' class="btn" >Subscribe Now</a>
-    </section>
-
-    <footer>
-      <div class="footer-grid">
-        <div>
-          <div class="footer-title">Stay updated</div>
-          <p class="footer-text">
-            Get new lessons, course launches, and coding tips delivered to your inbox.
-            Join the email list to stay connected and keep learning.
-            contact email: youssefdev1999@gmail.com
-          </p>
-        </div>
-
-        <form class="subscribe-form" id="emailForm">
-          <input type="email" id="emailInput" placeholder="Enter your email" required>
-          <button class="btn" type="submit">Subscribe by Email</button>
-        </form>
-      </div>
-
-      <div class="footer-bottom">
-        <div>© 2026 Youssef Full Stack Developer</div>
-        <div>Learn to build with confidence.</div>
-      </div>
-    </footer>
+  <div class="eyebrow">
+    <span class="dot"></span>
+    Professional Full-Stack Development Education
   </div>
 
+  <h1>
+    Learn Modern
+    <span class="highlight">Web Development</span>
+  </h1>
 
+  <p class="lead">
+    Practical coding education focused on real-world projects, modern technologies,
+    and production-ready development skills.
+  </p>
 
-  <script>
-  
+  <p>
+    Youssef Dev is an online learning platform designed to help students build
+    professional software engineering skills through structured lessons,
+    guided projects, mentorship, and modern development practices.
+  </p>
 
-    const emailForm = document.getElementById('emailForm');
-    const emailInput = document.getElementById('emailInput');
-    const toastElement = document.getElementById('liveToast');
+  <p>
+    Students gain access to frontend development, backend systems,
+    API architecture, databases, deployment workflows, automation,
+    and complete full-stack application development.
+  </p>
 
-    emailForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      if (!email) return;
+  <p>
+    All educational content is delivered digitally through online lessons,
+    project walkthroughs, downloadable resources, and private community access.
+  </p>
 
-      toastElement.textContent = 'Email subscription saved successfully.';
-      toastElement.classList.add('show');
-      setTimeout(() => toastElement.classList.remove('show'), 3000);
+  <div class="hero-buttons">
+    <a href="#courses" class="btn btn-primary">Explore Courses</a>
+    <a href="#subscribe" class="btn btn-secondary">Get Full Access</a>
+  </div>
 
-      emailInput.value = '';
-    });
-  </script>
+  <div class="stats">
+
+    <div class="stat">
+      <h3>4+</h3>
+      <p>Years Building Production Applications</p>
+    </div>
+
+    <div class="stat">
+      <h3>20+</h3>
+      <p>Project-Based Learning Modules</p>
+    </div>
+
+    <div class="stat">
+      <h3>100%</h3>
+      <p>Digital Learning Platform</p>
+    </div>
+
+    <div class="stat">
+      <h3>24/7</h3>
+      <p>Access To Learning Materials</p>
+    </div>
+
+  </div>
+
+</section>
+
+<h2 class="section-title">
+Technologies Included
+</h2>
+
+<p class="subtext">
+Learn the most important tools used by modern software developers and full-stack engineers.
+Courses are structured for beginners, intermediate learners, and students building real applications.
+</p>
+
+<section class="logo-grid">
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+<span>JavaScript</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+<span>TypeScript</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+<span>Python</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+<span>React</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg">
+<span>Next.js</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+<span>Node.js</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">
+<span>PostgreSQL</span>
+</div>
+
+<div class="logo-item">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg">
+<span>Docker</span>
+</div>
+
+</section>
+
+<h2 class="section-title" id="courses">
+Featured Courses
+</h2>
+
+<p class="subtext">
+Structured lessons focused on practical development workflows,
+modern coding practices, and real-world project building.
+</p>
+
+<section class="courses-grid">
+
+<a href="/subscribe?id=8725265061" class="course-card">
+
+<div class="course-image">
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80">
+<div class="course-overlay"></div>
+</div>
+
+<div class="course-content">
+
+<div class="course-tag">
+Frontend Development
+</div>
+
+<div class="course-title">
+Modern JavaScript Mastery
+</div>
+
+<div class="course-desc">
+Learn modern JavaScript concepts including ES6+, asynchronous programming,
+DOM manipulation, APIs, event handling, frontend architecture,
+and real production workflows.
+</div>
+
+<div class="course-meta">
+<span>32 Lessons</span>
+<span>Beginner → Advanced</span>
+</div>
+
+</div>
+</a>
+
+<a href="/subscribe?id=8725265061" class="course-card">
+
+<div class="course-image">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
+<div class="course-overlay"></div>
+</div>
+
+<div class="course-content">
+
+<div class="course-tag">
+Backend Development
+</div>
+
+<div class="course-title">
+Python For Web & Automation
+</div>
+
+<div class="course-desc">
+Build backend systems, automate workflows, understand APIs,
+learn server-side logic, and create scalable Python applications.
+</div>
+
+<div class="course-meta">
+<span>28 Lessons</span>
+<span>Project Based</span>
+</div>
+
+</div>
+</a>
+
+<a href="/subscribe?id=8725265061" class="course-card">
+
+<div class="course-image">
+<img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=1200&q=80">
+<div class="course-overlay"></div>
+</div>
+
+<div class="course-content">
+
+<div class="course-tag">
+Framework Development
+</div>
+
+<div class="course-title">
+React & Next.js Applications
+</div>
+
+<div class="course-desc">
+Learn components, routing, state management,
+authentication systems, deployment workflows,
+and production-ready application architecture.
+</div>
+
+<div class="course-meta">
+<span>24 Lessons</span>
+<span>Modern Stack</span>
+</div>
+
+</div>
+</a>
+
+</section>
+
+<h2 class="section-title" id="roadmap">
+Learning Roadmap
+</h2>
+
+<p class="subtext">
+A structured path designed to help students progress from beginner concepts
+to complete full-stack development projects.
+</p>
+
+<section class="timeline">
+
+<div class="timeline-item">
+<h3>Step 1 — Programming Fundamentals</h3>
+<p>
+Learn the foundations of programming, variables, functions,
+logic, loops, and problem-solving.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Step 2 — Frontend Development</h3>
+<p>
+Build responsive websites using HTML, CSS, JavaScript,
+and modern frontend development practices.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Step 3 — Backend Systems</h3>
+<p>
+Learn APIs, authentication, databases, server architecture,
+and backend development using Python and Node.js.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Step 4 — Full-Stack Projects</h3>
+<p>
+Combine frontend and backend technologies
+to build complete production-ready applications.
+</p>
+</div>
+
+</section>
+
+<h2 class="section-title">
+Platform Features
+</h2>
+
+<section class="cards">
+
+<div class="card">
+<h3>Project-Based Learning</h3>
+<p>
+Students learn by building real applications,
+not just watching theory-based lessons.
+</p>
+</div>
+
+<div class="card">
+<h3>Private Community Access</h3>
+<p>
+Subscribers receive access to educational discussion groups,
+coding support, and community learning resources.
+</p>
+</div>
+
+<div class="card">
+<h3>Digital Course Delivery</h3>
+<p>
+All lessons, materials, and educational resources
+are delivered digitally after successful payment.
+</p>
+</div>
+
+<div class="card">
+<h3>Flexible Learning</h3>
+<p>
+Students can learn at their own pace
+with full online access to lessons and projects.
+</p>
+</div>
+
+</section>
+
+<h2 class="section-title" id="testimonials">
+Student Reviews
+</h2>
+
+<p class="subtext">
+Feedback from students learning full-stack development and software engineering concepts.
+</p>
+
+<section class="testimonials">
+
+<div class="testimonial">
+<p>
+"The lessons were practical and easy to understand.
+I built my first full-stack application successfully."
+</p>
+<div class="student">
+— Ahmed K.
+</div>
+</div>
+
+<div class="testimonial">
+<p>
+"The backend explanations helped me understand APIs,
+authentication, and databases clearly."
+</p>
+<div class="student">
+— Sara M.
+</div>
+</div>
+
+<div class="testimonial">
+<p>
+"The projects felt realistic and professional.
+I learned modern development workflows step by step."
+</p>
+<div class="student">
+— Omar H.
+</div>
+</div>
+
+</section>
+
+<section class="subscribe" id="subscribe">
+
+<h2>
+Full Platform Access
+</h2>
+
+<div class="price">
+$25<span style="font-size:1rem;"> / month</span>
+</div>
+
+<p>
+Access all premium coding lessons, future course updates,
+project walkthroughs, educational resources,
+and private learning community access.
+</p>
+
+<div style="margin-top:28px;">
+<a href="/subscribe?id=8725265061" class="btn btn-primary">
+Subscribe Securely
+</a>
+</div>
+
+<div class="trust-row">
+<span>✓ Secure Payments</span>
+<span>✓ Digital Access</span>
+<span>✓ Cancel Anytime</span>
+<span>✓ Student Support</span>
+</div>
+
+</section>
+
+<h2 class="section-title" id="faq">
+Frequently Asked Questions
+</h2>
+
+<section class="faq">
+
+<div class="faq-item">
+<h3>How are courses delivered?</h3>
+<p>
+All lessons and educational resources are delivered digitally through online access.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Can beginners join?</h3>
+<p>
+Yes. The platform includes beginner-friendly lessons
+and structured learning paths.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>What happens after payment?</h3>
+<p>
+Subscribers receive digital access to premium educational content,
+private resources, and learning materials.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Can subscriptions be canceled?</h3>
+<p>
+Yes. Users may cancel subscriptions at any time.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Do you provide refunds?</h3>
+<p>
+Due to the digital nature of educational content,
+refund requests are reviewed on a case-by-case basis.
+</p>
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>
+About Youssef Dev
+</h3>
+
+<p>
+Youssef Dev is an online educational platform focused on teaching
+modern web development, programming, backend systems,
+frontend architecture, and software engineering skills.
+</p>
+
+<p style="margin-top:14px;">
+Business Type: Digital Educational Services<br>
+Location: Morocco<br>
+Delivery Method: Online Digital Access<br>
+Support Email: twinsdeveloperservice@gmail.com
+</p>
+
+<div class="footer-links">
+<a href="/privacy-policy">Privacy Policy</a>
+<a href="/terms">Terms of Service</a>
+<a href="/refund-policy">Refund Policy</a>
+<a href="/contact">Contact</a>
+</div>
+
+</div>
+
+<div>
+
+<h3>
+Stay Updated
+</h3>
+
+<p style="margin-bottom:18px;">
+Receive updates about new lessons,
+coding resources, and future course launches.
+</p>
+
+<form class="subscribe-form" id="emailForm">
+
+<input
+type="email"
+id="emailInput"
+placeholder="Enter your email address"
+required
+>
+
+<button type="submit" class="btn btn-primary">
+Subscribe
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div>
+© 2026 Youssef Dev — All rights reserved.
+</div>
+
+<div>
+Professional Digital Coding Education Platform
+</div>
+
+</div>
+
+</div>
+
+</footer>
+
+</div>
+
+<div class="toast-msg" id="liveToast"></div>
+
+<script>
+
+const emailForm = document.getElementById('emailForm');
+const emailInput = document.getElementById('emailInput');
+const toastElement = document.getElementById('liveToast');
+
+emailForm.addEventListener('submit', function(e){
+
+  e.preventDefault();
+
+  const email = emailInput.value.trim();
+
+  if(!email) return;
+
+  toastElement.textContent = 'Email subscription saved successfully.';
+  toastElement.classList.add('show');
+
+  setTimeout(() => {
+    toastElement.classList.remove('show');
+  }, 3000);
+
+  emailInput.value = '';
+
+});
+
+</script>
+
 </body>
 </html>
